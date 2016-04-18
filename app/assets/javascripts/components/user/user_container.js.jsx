@@ -1,8 +1,10 @@
 var UserContainer = React.createClass({
-
   render: function() {
     return (
-      < UserLogin />
+      <div class='user-container'>
+        <UserLogin />
+        <UserRegister />
+      </div>
     );
   }
 });
