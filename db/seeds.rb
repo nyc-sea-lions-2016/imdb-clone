@@ -12,10 +12,10 @@ ROLES = ['admin', 'regular', 'trusted']
 end
 
 # information about movie api --> http://omdbapi.com/
-# response = HTTParty.get('http://www.omdbapi.com/?')
+# response = HTTParty.get('http://www.omdbapi.com/?t=&y=&plot=full&r=json')
 
 # api to get film actors
-
+#
 100.times do
   Review.create({
     content: Faker::Lorem.paragraph,
