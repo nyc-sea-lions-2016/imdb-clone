@@ -1,29 +1,27 @@
 var FilmContainer = React.createClass({
-
-  render: function() {
-    var filmNodes = this.props.data.map(function(film){
-      return (
-        <Film key={film.id} name={film.name}>
-        </Film>
-      )
-    })
-    return (
-
-    );
+  getInitialState: function(){
+    return {films: []}
+  },
+  componentDidMount: function(){
+    this.loadFilmsFromServer()
+  },
+  loadFilmsFromServer: function(){
+    $.ajax({
+      url:'/films',
+      dataType: 'json',
+      method: 'GET',
+      success: function(films){
+        this.setState({films: films})
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.error(this.props.url, status, err.toString())
+      }.bind(this)
+    });
+  },
+  render: function(){
+    var self = this;
+    return(
+      <FilmList/>
+    )
   }
-});
-
-
-
-render: function() {
-          var commentNodes = this.props.data.map(function(comment){
-            return (
-              <Comment author={comment.author} key={comment.id}>
-                {comment.text}
-              </Comment>
-            );
-          });
-          return (
-            <div className="commentList">
-              {commentNodes}
-            </div>
+})
