@@ -10,7 +10,7 @@ var CategoriesContainer = React.createClass({
       )
     })
     return (
-      <section className='categories-container'>
+      <section className='categories-container list-group'>
         <h3>CATEGORIES</h3>
           <ul>
             {categoryNodes}
