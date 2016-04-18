@@ -15,12 +15,13 @@ CSV.foreach(filename = File.dirname(__FILE__) + "/popular_movies.csv", headers: 
   new_film = Film.create!({
     name: row["Film"],
     director: row["Director"],
-    year: row["Year of cinema release"],
-    oscar_count: row["No of Oscars won"],
+    year: row["Year of cinema release"].to_i,
+    oscar_count: row["No of Oscars won"].to_i,
     imdb_link: row["IMDB link"],
     country: row["Country"],
     category_id: Category.find_by(name: row["Category"]).id
     })
+    puts new_film.name
 end
 
 
@@ -33,7 +34,7 @@ ROLES = ['admin', 'regular', 'trusted']
     password: '123',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    role_id: (1..3).sample,
+    role_id: (1..3).to_a.sample,
     })
 end
 
@@ -42,8 +43,8 @@ end
 100.times do
   Review.create!({
     content: Faker::Lorem.paragraph,
-    film_id: (1..10).sample,
-    user_id: (1..20).sample,
+    film_id: (1..10).to_a.sample,
+    user_id: (1..20).to_a.sample,
     })
 end
 
@@ -51,8 +52,9 @@ end
 TYPES = ['Review', 'Film']
 200.times do
   Comment.create!({
-    content: Faker::ChuckNorris.fact,
+    content: Faker::Hacker.say_something_smart,
     commentable_type: TYPES.sample,
-    commentable_id: (1..100).sample
+    commentable_id: (1..100).to_a.sample,
+    user_id: (1..20).to_a.sample
     })
 end
