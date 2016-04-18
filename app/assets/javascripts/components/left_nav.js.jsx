@@ -6,8 +6,6 @@ var LeftNav = React.createClass({
     return (
 
       <div id="sidebar" role="navigation">
-
-
           <div id="sidebar-nav">
             <ul className="nav nav-stacked">
                 <li><a href="#"> Movies</a></li>

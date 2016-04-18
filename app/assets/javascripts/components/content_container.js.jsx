@@ -32,6 +32,7 @@ var ContentContainer = React.createClass({
     return (
       <div id='content-container'>
         <CategoriesContainer categories={self.state.categories} selectedCategory={selectedCategory}/>
+        <FilmContainer />
       </div>
     );
   }
