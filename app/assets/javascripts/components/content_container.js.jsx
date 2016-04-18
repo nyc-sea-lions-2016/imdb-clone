@@ -30,7 +30,9 @@ var ContentContainer = React.createClass({
     debugger;
     var selectedCategory = this.state.selected && this.state.selected.name
     return (
-      <CategoriesContainer categories={self.state.categories} selectedCategory={selectedCategory}/>
+      <div id='content-container'>
+        <CategoriesContainer categories={self.state.categories} selectedCategory={selectedCategory}/>
+      </div>
     );
   }
 });
