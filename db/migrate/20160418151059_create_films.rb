@@ -4,8 +4,8 @@ class CreateFilms < ActiveRecord::Migration
       t.string :name, null: false, index: true
       t.belongs_to :category, null: false, index: true
       t.string :director
-      t.string :year
-      t.string :oscar_count
+      t.integer :year
+      t.integer :oscar_count
       t.string :imdb_link
       t.string :country
       t.timestamps null: false
