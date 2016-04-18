@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20160418151211) do
     t.string   "name",        null: false
     t.integer  "category_id", null: false
     t.string   "director"
-    t.string   "year"
-    t.string   "oscar_count"
+    t.integer  "year"
+    t.integer  "oscar_count"
     t.string   "imdb_link"
     t.string   "country"
     t.datetime "created_at",  null: false
