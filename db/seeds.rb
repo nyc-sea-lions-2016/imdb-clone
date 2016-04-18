@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
 ROLES = ['admin', 'regular', 'trusted']
 
 20.times do
@@ -17,5 +8,24 @@ ROLES = ['admin', 'regular', 'trusted']
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     role_id: (1..3).sample,
+    })
+end
+
+# information about movie api --> http://omdbapi.com/
+# response = HTTParty.get('http://www.omdbapi.com/?')
+
+# api to get film actors
+
+100.times do
+  Review.create({
+    content: Faker::Lorem.paragraph,
+    film_id: (1..10).sample,
+    user_id: (1..20).sample,
+    })
+end
+
+100.times do
+  Comment.create!({
+    Faker::ChuckNorris.fact
     })
 end
