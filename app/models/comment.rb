@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :content, presence: true
-  belongs_to :commentable
+  validates :content, :commentable_type, :commentable_id, presence: true
+
+  belongs_to :commentable, polymorphic: true
 end
