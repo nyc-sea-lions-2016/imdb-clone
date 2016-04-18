@@ -2,7 +2,7 @@ var ContentContainer = React.createClass({
   getInitialState: function(){
     return {categories: []}
   },
-  componentDidMount: function(){
+  componentWillMount: function(){
     this.loadCategoriesFromServer()
   },
   loadCategoriesFromServer: function(){
@@ -26,9 +26,9 @@ var ContentContainer = React.createClass({
   },
   render: function() {
     var self = this;
-    var selectedCategory = this.state.selected
+    var selectedCategory = this.state.selected && this.state.selected.name
     return (
-      <CategoriesContainer selectedCategory={selectedCategory}/>
+      <CategoriesContainer categories={self.state.categories} selectedCategory={selectedCategory}/>
     );
   }
 });
