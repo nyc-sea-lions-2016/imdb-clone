@@ -13,7 +13,6 @@ CSV.foreach(filename = File.dirname(__FILE__) + "/popular_movies.csv", headers: 
   end
 
   new_film = Film.create({
-    actors: film_actors,
     name: row["Film"],
     director: row["Director"],
     year: row["Year of cinema release"],

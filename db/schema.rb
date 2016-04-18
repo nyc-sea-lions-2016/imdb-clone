@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160418151211) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",          null: false
+    t.integer  "user_id",          null: false
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.datetime "created_at",       null: false
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160418151211) do
   end
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "film_actors", force: :cascade do |t|
     t.integer "film_id",  null: false
@@ -48,7 +50,12 @@ ActiveRecord::Schema.define(version: 20160418151211) do
 
   create_table "films", force: :cascade do |t|
     t.string   "name",        null: false
-    t.integer  "category_id"
+    t.integer  "category_id", null: false
+    t.string   "director"
+    t.string   "year"
+    t.string   "oscar_count"
+    t.string   "imdb_link"
+    t.string   "country"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
