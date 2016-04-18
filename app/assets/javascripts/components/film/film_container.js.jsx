@@ -2,7 +2,7 @@ var FilmContainer = React.createClass({
   getInitialState: function(){
     return {films: []}
   },
-  componentDidMount: function(){
+  componentWillMount: function(){
     this.loadFilmsFromServer()
   },
   loadFilmsFromServer: function(){
@@ -18,10 +18,13 @@ var FilmContainer = React.createClass({
       }.bind(this)
     });
   },
+  //loadRatingsFromServer: function(){
+    //TODO(jmaguire)add ajax call to get the average rating of each film to display next to the names
+  //},
   render: function(){
     var self = this;
     return(
-      <FilmList/>
+      <FilmList films={self.state.films}/>
     )
   }
 })

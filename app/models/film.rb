@@ -5,4 +5,10 @@ class Film < ActiveRecord::Base
   has_many :reviews
 
   validates :name, :category_id, presence: true
+
+  def average_rating
+    @ratings = self.ratings
+    @avg_rating = (@ratings.reduce(0){ |sum,rating| sum += rating.value})/(@ratings.length)
+  end
+
 end
