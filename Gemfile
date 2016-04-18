@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'httparty'
+
 gem 'react-rails', '~> 1.6.0'
 
 # Use Capistrano for deployment
@@ -47,4 +49,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
