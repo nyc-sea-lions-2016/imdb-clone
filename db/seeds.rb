@@ -1,5 +1,32 @@
-ROLES = ['admin', 'regular', 'trusted']
+require 'csv'
 
+#Aligns with categories in CSV file
+['Romance','Crime','Comedy','Action','Drama','Sci-fi','Horror'].each do |category|
+  Category.create!({ name: category })
+end
+
+CSV.foreach(filename = File.dirname(__FILE__) + "/popular_movies.csv", headers: true) do |row|
+
+  film_actors = []
+  row["Leading actors"].split(',').each do |actor|
+    film_actors.push(Actor.create({name: actor}))
+  end
+
+  new_film = Film.create({
+    actors: film_actors,
+    name: row["Film"],
+    director: row["Director"],
+    year: row["Year of cinema release"],
+    oscar_count: row["No of Oscars won"],
+    imdb_link: row["IMDB link"],
+    country: row["Country"],
+    category_id: Category.find_by(name: row["Category"]).id
+    })
+end
+
+
+# Create 20 users
+ROLES = ['admin', 'regular', 'trusted']
 20.times do
   User.create!({
     username: Faker::Internet.user_name,
@@ -11,11 +38,8 @@ ROLES = ['admin', 'regular', 'trusted']
     })
 end
 
-# information about movie api --> http://omdbapi.com/
-# response = HTTParty.get('http://www.omdbapi.com/?t=&y=&plot=full&r=json')
 
-# api to get film actors
-#
+#create 100 reviews
 100.times do
   Review.create({
     content: Faker::Lorem.paragraph,
@@ -24,8 +48,12 @@ end
     })
 end
 
-100.times do
+#create 200 comments
+TYPES = ['Review', 'Film']
+200.times do
   Comment.create!({
-    Faker::ChuckNorris.fact
+    content: Faker::ChuckNorris.fact,
+    commentable_type: TYPES.sample,
+    commentable_id: (1..100).sample
     })
 end
