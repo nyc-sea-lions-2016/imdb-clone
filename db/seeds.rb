@@ -58,3 +58,11 @@ TYPES = ['Review', 'Film']
     user_id: (1..20).to_a.sample
     })
 end
+
+1000.times do
+  Rating.create!({
+    film_id: (1..Film.count).to_a.sample,
+    user_id: (1..20).to_a.sample,
+    value: (0..5).to_a.sample
+    })
+end
