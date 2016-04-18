@@ -1,1 +1,9 @@
-json.(@films){ |film| :name, :category_id, :director, :year, :oscar_count, :imdb_link, :country }
+json.array!@films do |film|
+  json.name film.name
+  json.category_id film.category_id
+  json.director film.director
+  json.oscar_count film.oscar_count
+  json.imdb_link film.imdb_link
+  json.country film.country
+  json.year film.year
+end
