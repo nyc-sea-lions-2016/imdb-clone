@@ -1,4 +1,5 @@
 json.array!@films do |film|
+  json.id film.id
   json.name film.name
   json.category_id film.category_id
   json.director film.director
