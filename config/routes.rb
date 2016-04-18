@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'application#index'
   resources :categories, only: [:index, :show]
 
 
