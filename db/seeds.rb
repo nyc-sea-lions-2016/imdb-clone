@@ -9,10 +9,10 @@ CSV.foreach(filename = File.dirname(__FILE__) + "/popular_movies.csv", headers: 
 
   film_actors = []
   row["Leading actors"].split(',').each do |actor|
-    film_actors.push(Actor.create({name: actor}))
+    film_actors.push(Actor.create!({name: actor}))
   end
 
-  new_film = Film.create({
+  new_film = Film.create!({
     name: row["Film"],
     director: row["Director"],
     year: row["Year of cinema release"],
@@ -40,7 +40,7 @@ end
 
 #create 100 reviews
 100.times do
-  Review.create({
+  Review.create!({
     content: Faker::Lorem.paragraph,
     film_id: (1..10).sample,
     user_id: (1..20).sample,
