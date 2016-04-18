@@ -12,6 +12,7 @@ var ContentContainer = React.createClass({
       method: 'GET',
       success: function(categories){
         this.setState({categories: categories, selected: categories[0]});
+        debugger
       }.bind(this),
       error: function(xhr,status,err){
         console.error(this.props.url,status,err.toString())
@@ -26,6 +27,7 @@ var ContentContainer = React.createClass({
   },
   render: function() {
     var self = this;
+    debugger;
     var selectedCategory = this.state.selected && this.state.selected.name
     return (
       <CategoriesContainer categories={self.state.categories} selectedCategory={selectedCategory}/>

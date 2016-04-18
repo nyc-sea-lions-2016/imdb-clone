@@ -4,10 +4,11 @@ var Category = React.createClass({
     this.props.showCategory(this.props.data.id)
   },
   render: function(){
+    debugger
     return (
       <li>
         <a onClick={this.handleClick}>
-          <span>{this.props.selectedCategory.name}</span>
+          <span>{this.props.data.name}</span>
         </a>
       </li>
     )

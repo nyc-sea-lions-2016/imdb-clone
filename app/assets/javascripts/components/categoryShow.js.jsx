@@ -8,7 +8,7 @@ var CategoryShow = React.createClass({
     });
     return (
       <section className='category-show'>
-        <h3>{this.props.categoryName}</h3>
+        <h3>{this.props.data.name}</h3>
       </section>
     )
   }
