@@ -3,7 +3,7 @@ var CategoriesContainer = React.createClass({
     this.props.showCategory(data)
   },
   render: function() {
-    var categoryNodes = this.props.data.map(function(category){
+    var categoryNodes = this.props.categories.map(function(category){
       return (
         <Category key={category.id} data={category} showCategory={self.showCategory}/>
       )
