@@ -1,7 +1,7 @@
 var FilmShow = React.createClass({
   getInitialState: function(){
     return {reviews: []}
-  }
+  },
   loadReviewsFromServer: function(){
     var url = '/films/' + this.props.film.id + '/reviews'
     $.ajax({
