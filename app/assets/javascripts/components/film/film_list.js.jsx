@@ -6,6 +6,7 @@ var FilmList = React.createClass({
         <Film key={film.id} data={film} />
       )
     });
+    
     return (
       <div className='filmList list-group' onClick={this.handleClick}>
         <ul>
