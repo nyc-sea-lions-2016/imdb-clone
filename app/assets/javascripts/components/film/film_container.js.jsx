@@ -1,6 +1,9 @@
 var FilmContainer = React.createClass({
   getInitialState: function(){
-    return {films: this.props.films selectedFilm: ''}
+    return {films: this.props.films, selectedFilm: ''}
+  },
+  componentWillReceiveProps: function(nextProps){
+    this.setState({films: nextProps.films})
   },
   // showFilm: function(data){
   //   var selected = this.state.films.filer(function(object){
