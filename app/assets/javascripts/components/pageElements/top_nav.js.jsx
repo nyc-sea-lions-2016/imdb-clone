@@ -1,4 +1,16 @@
 var TopNav = React.createClass({
+  getInitialState: function() {
+    return {loggedIn: false}
+  },
+  componentWillMount: function() {
+    this.setLoggedInStatus();
+  },
+  setLoggedInStatus: function() {
+    $.ajax({
+      url: '/users'
+      // TODO If logged in, the set loggedIn state to true
+    })
+  },
   userSignOut: function(event) {
     event.preventDefault();
     $.ajax({
