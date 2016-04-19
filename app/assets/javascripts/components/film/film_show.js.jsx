@@ -1,4 +1,7 @@
 var FilmShow = React.createClass({
+  getInitialState: function(){
+    return {reviews: []}
+  }
   loadReviewsFromServer: function(){
     var url = '/films/' + this.props.film.id + '/reviews'
     $.ajax({
@@ -6,8 +9,11 @@ var FilmShow = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(reviews){
-        
-      }
+        this.setState({reviews: reviews})
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.error(this.props.url,status,err.toString())
+      }.bind(this)
     })
   },
   render: function(){
