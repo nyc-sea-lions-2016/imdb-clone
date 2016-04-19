@@ -1,17 +1,30 @@
 var FilmShow = React.createClass({
-  // getInitialState: function(){
-  //   return {selected: null}
-  // },
+  loadReviewsFromServer: function(){
+    var url = '/films/' + this.props.film.id + '/reviews'
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      method: 'GET',
+      success: function(reviews){
+        
+      }
+    })
+  },
   render: function(){
     var film = this.props.film
     return (
-      <section className='film-show'>
-        <h3>{film.name}</h3>
-        <span className='film-year'>Year: {film.year}, </span>
-        <span className='film-director'>Director: {film.director}, </span>
-        <span className='film-oscars'>Oscar Count: {film.oscar_count}, </span>
-        <span className='film-country'>Country: {film.country} </span>
-      </section>
+      <div className='film-show'>
+        <section className='film-info'>
+          <h3>{film.name}</h3>
+          <span className='film-year'>Year: {film.year}, </span>
+          <span className='film-director'>Director: {film.director}, </span>
+          <span className='film-oscars'>Oscar Count: {film.oscar_count}, </span>
+          <span className='film-country'>Country: {film.country} </span>
+        </section>
+        <section className='film-reviews'>
+          <ReviewContainer film={film}/>
+        </section>
+      </div>
     );
   }
 });
