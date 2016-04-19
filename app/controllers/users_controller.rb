@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.role_id = 1 if @user.role == nil
     if @user.save
       session[:id] = @user.id
     else
@@ -30,6 +31,12 @@ class UsersController < ApplicationController
   end
 
   def sign_up
+  end
+
+  def sign_in
+  end
+
+  def sign_out
   end
 
 end
