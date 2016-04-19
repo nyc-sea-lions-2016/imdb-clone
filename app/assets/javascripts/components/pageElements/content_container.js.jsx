@@ -6,11 +6,27 @@ var ContentContainer = React.createClass({
     this.showCategory();
   },
   componentWillReceiveProps: function(nextProps){
-    console.log(nextProps)
-    this.showCategory(nextProps.selectedCategory);
+    debugger
+    if (nextProps.showReviews == true){
+      this.showReviews();
+    } else {
+      this.showCategory(nextProps.selectedCategory);
+    }
+  },
+  showReviews: function(){
+    $.ajax({
+      url: '/reviews',
+      dataType: 'json',
+      method: 'GET',
+      success: function(reviews){
+        this.setState({reviews: reviews});
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.error(this.props.url,status,err.toString())
+      }.bind(this)
+    });
   },
   showCategory: function(category){
-    console.log("Category", category)
     var categoryUrl = '/categories/' + (category || 9)
     $.ajax({
       url: categoryUrl,
@@ -29,13 +45,13 @@ var ContentContainer = React.createClass({
   },
   render: function() {
     var selectedFilm = this.state.selectedFilm
-
     return (
       <div id='content-container'>
         <FilmContainer
         selectedFilm={selectedFilm}
         showFilm={this.showFilm}
-        films={this.state.films} />
+        films={this.state.films}
+        />
       </div>
     );
   }
