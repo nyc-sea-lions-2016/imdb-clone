@@ -1,6 +1,6 @@
 var PageContainer = React.createClass({
   getInitialState: function(){
-    return {categories: []}
+    return {categories: [], selected: {name: 'All', id: 9} }
   },
   componentWillMount: function(){
     this.loadCategoriesFromServer();
@@ -11,7 +11,7 @@ var PageContainer = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(categories){
-        categories.unshift({name: 'All'})
+        categories.unshift({name: 'All', id: 9})
         this.setState({categories: categories, selected: categories[0]});
       }.bind(this),
       error: function(xhr,status,err){
