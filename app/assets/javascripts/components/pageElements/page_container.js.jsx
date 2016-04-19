@@ -19,6 +19,9 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
+  shouldComponentUpdate: function(){
+    return true
+  },
   showCategory: function(data){
     var chosenCategory = data
     this.setState({selectedCategory: chosenCategory})
@@ -27,6 +30,7 @@ var PageContainer = React.createClass({
   render: function() {
     var self = this;
     var selectedCategory = this.state.selectedCategory && this.state.selectedCategory.id
+    debugger
     return (
       <div>
         <LeftNav
