@@ -1,8 +1,7 @@
 var Film = React.createClass({
   handleClick: function(e){
     e.preventDefault();
-    var id = this.props.data.id
-    
+    this.props.showFilm(this.props.data.name)
   },
   render: function() {
     return  (
