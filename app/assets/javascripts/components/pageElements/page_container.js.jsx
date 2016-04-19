@@ -5,7 +5,6 @@ var PageContainer = React.createClass({
         <TopNav />
         <LeftNav />
         <ContentContainer />
-        <FilmContainer />
       </div>
     );
   }

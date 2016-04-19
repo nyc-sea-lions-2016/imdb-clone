@@ -1,13 +1,14 @@
 var Category = React.createClass({
   handleClick: function(e){
     e.preventDefault();
-    this.props.showCategory(this.props.data.id)
+    this.props.showCategory(this.props.data.name)
   },
   render: function(){
+    debugger
     return (
-      <li>
+      <li className='list-group-item'>
         <a onClick={this.handleClick}>
-          <span>{this.props.selectedCategory.name}</span>
+          <span>{this.props.data.name}</span>
         </a>
       </li>
     )
