@@ -19,7 +19,6 @@ var FilmContainer = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(reviews){
-        debugger;
         this.setState({reviews: reviews})
       }.bind(this),
       error: function(xhr,status,err){
