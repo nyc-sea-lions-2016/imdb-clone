@@ -1,22 +1,6 @@
 var ContentContainer = React.createClass({
   getInitialState: function(){
-    return {categories: []}
-  },
-  componentWillMount: function(){
-
-  },
-  loadCategoriesFromServer: function(){
-    $.ajax({
-      url: '/categories',
-      dataType: 'json',
-      method: 'GET',
-      success: function(categories){
-        this.setState({categories: categories, selected: categories[0]});
-      }.bind(this),
-      error: function(xhr,status,err){
-        console.error(this.props.url,status,err.toString())
-      }.bind(this)
-    });
+    return {films: [], selected: {name: 'all'}}
   },
   showCategory: function(data){
     var selected = this.state.categories.filter(function(object){
@@ -29,7 +13,7 @@ var ContentContainer = React.createClass({
     var selectedCategory = this.state.selected && this.state.selected.name
     return (
       <div id='content-container'>
-        <FilmContainer />
+        <FilmContainer selectedCategory={selectedCategory}/>
       </div>
     );
   }

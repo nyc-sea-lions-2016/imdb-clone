@@ -4,10 +4,9 @@ var Category = React.createClass({
     this.props.showCategory(this.props.data.name)
   },
   render: function(){
-    debugger
     return (
-      <li className='left-nav-button'>
-        <a href='#' onClick={this.handleClick}>
+      <li >
+        <a href='#' onClick={this.handleClick} className='left-nav-button'>
           {this.props.data.name}
         </a>
       </li>

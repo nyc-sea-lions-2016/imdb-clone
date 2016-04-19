@@ -1,18 +1,15 @@
 var LeftNav = React.createClass({
-  handleClick: function(){
-
-  },
   showCategory: function(data){
     this.props.showCategory(data)
   },
   render: function() {
+    var self = this;
     var categoryNodes = this.props.categories.map(function(category){
       return (
-        <Category key={category.name} data={category} clicked={self.showCategory}/>
+        <Category key={category.name} data={category} showCategory={self.showCategory}/>
       )
     })
     return (
-
       <div id="sidebar" role="navigation">
           <div id="sidebar-nav">
             <ul className="nav nav-stacked">
@@ -20,7 +17,6 @@ var LeftNav = React.createClass({
             </ul>
           </div>
       </div>
-
     );
   }
 });
