@@ -1,12 +1,5 @@
 class SessionsController < ApplicationController
-  def sign_up
-  end
-
-  def sign_in
-  end
-
-  def sign_out
-    sessions.clear
-    redirect_to 'root_path'
+  def user
+    render json: {username: current_user.email}
   end
 end

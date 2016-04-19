@@ -1,3 +1,0 @@
-var ReviewList = React.createClass({
-  
-})
