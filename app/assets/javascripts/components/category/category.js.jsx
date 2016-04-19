@@ -4,7 +4,6 @@ var Category = React.createClass({
     this.props.showCategory(this.props.data.name)
   },
   render: function(){
-    debugger
     return (
       <li className='list-group-item'>
         <a onClick={this.handleClick}>

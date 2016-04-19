@@ -7,8 +7,10 @@ var FilmList = React.createClass({
       )
     });
     return (
-      <div className='filmList'>
-        {filmNodes}
+      <div className='filmList list-group' onClick={this.handleClick}>
+        <ul>
+          {filmNodes}
+        </ul>
       </div>
     );
   }

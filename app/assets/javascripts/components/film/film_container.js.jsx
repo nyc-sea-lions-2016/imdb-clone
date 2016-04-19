@@ -24,11 +24,14 @@ var FilmContainer = React.createClass({
     });
     this.setState({selected: selected[0]})
   },
-  //loadRatingsFromServer: function(){
-    //TODO(jmaguire)add ajax call to get the average rating of each film to display next to the names
-  //},
+  // handleFilmClick: function(){
+  //   render: function(){
+  //     this.showFilm()
+  //   }
+  // },
   render: function(){
     var self = this;
+    var selectedFilm = this.state.selected && this.state.selected.name
     return(
       <FilmList films={self.state.films}/>
     )

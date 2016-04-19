@@ -12,6 +12,7 @@ class Rating < ActiveRecord::Base
       id = film.id
       @ratings_hash[:id] = film.average_rating
     end
+    @ratings_hash
   end
 
   private
