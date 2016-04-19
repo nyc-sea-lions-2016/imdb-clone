@@ -19,4 +19,9 @@ class ReviewsController < ApplicationController
   def update
   end
 
+  private
+  def review_params
+     params.permit(:content).merge(user: current_user)
+  end
+
 end
