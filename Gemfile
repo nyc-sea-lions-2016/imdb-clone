@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
 
 gem 'react-rails', '~> 1.6.0'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
