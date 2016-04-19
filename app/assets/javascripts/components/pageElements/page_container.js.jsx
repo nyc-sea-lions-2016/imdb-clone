@@ -1,9 +1,20 @@
 var PageContainer = React.createClass({
   getInitialState: function(){
-    return {categories: [], selectedCategory: {name: 'All', id: 9} }
+    return {categories: [],
+            selectedCategory: {name: 'All', id: 9},
+            loggedIn: false,
+            user: '',
+    }
   },
   componentWillMount: function(){
     this.loadCategoriesFromServer();
+    this.setLoggedInStatus();
+  },
+  setLoggedInStatus: function() {
+    var self = this
+    $.get('/sessions/user').done(function(response){
+      self.setState({loggedIn: true, user: response.username})
+    }).fail()
   },
   loadCategoriesFromServer: function(){
     $.ajax({
@@ -30,8 +41,11 @@ var PageContainer = React.createClass({
   render: function() {
     var self = this;
     var selectedCategory = this.state.selectedCategory && this.state.selectedCategory.id
+    var loggedIn = this.state.loggedIn
+    var user = this.state.user
     return (
       <div>
+        <TopNav loggedIn={loggedIn} user={user}/>
         <LeftNav
           categories={self.state.categories}
           showCategory={self.showCategory}

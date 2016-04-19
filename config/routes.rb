@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
+  get 'sessions/user' => 'sessions#user'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get 'films/:id/reviews' => 'films#reviews'
