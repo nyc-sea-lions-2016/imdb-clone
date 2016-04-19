@@ -1,6 +1,10 @@
 var FilmList = React.createClass({
+<<<<<<< HEAD
   showFilm: function(data){
     this.props.showFilm(data)
+=======
+  handleClick: function(data){
+>>>>>>> master
   },
   render: function() {
     var self = this;

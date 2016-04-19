@@ -9,9 +9,10 @@
 <body>
 
   <%= react_component('TopNav') %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
+  <div id='content-container'>
+    <p class="notification" id="notice"><%= notice %></p>
+    <p class="notification" id="alert"><%= alert %></p>
+  </div>
   <%= yield %>
 
 </body>

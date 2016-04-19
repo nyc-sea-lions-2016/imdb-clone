@@ -5,14 +5,14 @@ var ContentContainer = React.createClass({
   componentWillMount: function(){
     this.showCategory();
   },
-  showCategory: function(data){
-    this.state.selected
+  showCategory: function(){
     var categoryUrl = '/categories/' + this.state.selected.id
     $.ajax({
       url: categoryUrl,
       dataType: 'json',
       method: 'GET',
       success: function(films){
+        console.log(films)
         this.setState({films: films});
       }.bind(this),
       error: function(xhr,status,err){
@@ -29,8 +29,12 @@ var ContentContainer = React.createClass({
     var selectedCategory = this.state.selected && this.state.selected.id
     return (
       <div id='content-container'>
+
         <FilmContainer
         selectedFilm={selectedFilm} selectedCategory={selectedCategory} films={this.state.films} />
+
+
+        {/*<FilmContainer selectedCategory={selectedCategory} films={self.state.films} />*/}
 
       </div>
     );
