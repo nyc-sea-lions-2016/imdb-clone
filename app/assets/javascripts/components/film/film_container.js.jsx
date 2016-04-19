@@ -6,8 +6,7 @@ var FilmContainer = React.createClass({
     this.props.showFilm(data)
   },
   componentWillReceiveProps: function(nextProps){
-    this.setState({films: nextProps.films})
-    this.setState({selectedFilm: nextProps.selectedFilm})
+    this.setState({films: nextProps.films, selectedFilm: nextProps.selectedFilm, reviews: nextProps.reviews})
     if(nextProps.selectedFilm != ''){
       this.loadReviewsFromServer(nextProps.selectedFilm)
     };
@@ -29,14 +28,19 @@ var FilmContainer = React.createClass({
   render: function(){
     var self = this;
     var selectedFilm = this.state.selectedFilm
-    if(selectedFilm===""){
+    var reviews = this.state.reviews
+    if (selectedFilm==="" && reviews) {
+      return(
+        <ReviewList reviews={reviews}/>
+      );
+    } else if (selectedFilm===""){
       return(
         <FilmList films={self.state.films} showFilm={self.showFilm}/>
-      )
-    }else{
+      );
+    } else {
       return(
-      <FilmShow film={selectedFilm} reviews={this.state.reviews}/>
-    );
+        <FilmShow film={selectedFilm} reviews={this.state.reviews}/>
+      );
     }
   }
-});
+})

@@ -35,8 +35,11 @@ var PageContainer = React.createClass({
   },
   showCategory: function(data){
     var chosenCategory = data
-    this.setState({selectedCategory: chosenCategory})
+    this.setState({selectedCategory: chosenCategory, showReviews: false})
     this.forceUpdate()
+  },
+  showReviews: function(){
+    this.setState({showReviews: true})
   },
   render: function() {
     var self = this;
@@ -49,9 +52,11 @@ var PageContainer = React.createClass({
         <LeftNav
           categories={self.state.categories}
           showCategory={self.showCategory}
+          showReviews={self.showReviews}
         />
         <ContentContainer
           selectedCategory={selectedCategory}
+          showReviews={self.state.showReviews}
         />
       </div>
     );
