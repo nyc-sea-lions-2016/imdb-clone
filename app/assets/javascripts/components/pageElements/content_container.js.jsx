@@ -7,15 +7,12 @@ var ContentContainer = React.createClass({
   },
   showCategory: function(data){
     this.state.selected
-    debugger
     var categoryUrl = '/categories/' + this.state.selected.id
-    //ajax call to get info I want
     $.ajax({
       url: categoryUrl,
       dataType: 'json',
       method: 'GET',
       success: function(films){
-        debugger
         this.setState({films: films});
       }.bind(this),
       error: function(xhr,status,err){
