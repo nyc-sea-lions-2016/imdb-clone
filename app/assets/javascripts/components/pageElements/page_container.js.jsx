@@ -19,6 +19,9 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
+  shouldComponentUpdate: function(){
+    return true
+  },
   showCategory: function(data){
     var chosenCategory = data
     this.setState({selectedCategory: chosenCategory})
