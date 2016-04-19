@@ -1,5 +1,13 @@
 var TopNav = React.createClass({
-
+  userSignOut: function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/users/sign_out',
+      method: 'delete'
+    }).done(function(response){
+      window.location.href = '/'
+    });
+  },
   render: function() {
     return (
       <nav className='navbar navbar-inverse navbar-static-top'>
@@ -12,7 +20,7 @@ var TopNav = React.createClass({
               <li><a href='/users/sign_up'>Register</a></li>
               <li><a href='/users/sign_in'>Login</a></li>
               <li><a href='#'>Profile</a></li>
-              <li><a href='/users/sign_out'>Logout</a></li>
+              <li><a href='/users/sign_out' onClick={this.userSignOut}>Logout</a></li>
             </ul>
           </div>
         </div>

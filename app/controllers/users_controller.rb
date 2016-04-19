@@ -37,6 +37,8 @@ class UsersController < ApplicationController
   end
 
   def sign_out
+    sessions.clear
+    redirect_to 'root_path'
   end
 
 end

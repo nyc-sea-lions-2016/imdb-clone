@@ -25,3 +25,15 @@
 .left-nav-button {
   color: white;
 }
+
+.notification {
+  margin-left: 150px;
+}
+
+#notice {
+  color: green;
+}
+
+#alert {
+  color: red;
+}
