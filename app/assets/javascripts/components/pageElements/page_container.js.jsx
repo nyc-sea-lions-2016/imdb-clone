@@ -30,7 +30,6 @@ var PageContainer = React.createClass({
   render: function() {
     var self = this;
     var selectedCategory = this.state.selectedCategory && this.state.selectedCategory.id
-    debugger
     return (
       <div>
         <LeftNav

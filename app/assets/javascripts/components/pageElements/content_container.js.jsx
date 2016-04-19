@@ -1,21 +1,22 @@
 var ContentContainer = React.createClass({
   getInitialState: function(){
-    return {films: [], selected: {name: 'All', id: 9}, selectedFilm: ''}
+    return {films: [], selectedFilm: ''}
   },
   componentWillMount: function(){
     this.showCategory();
   },
   componentWillReceiveProps: function(nextProps){
-    this.setState({selectedCategory: nextProps.selectedCategory})
+    console.log(nextProps)
+    this.showCategory(nextProps.selectedCategory);
   },
-  showCategory: function(){
-    var categoryUrl = '/categories/' + this.state.selected.id
+  showCategory: function(category){
+    console.log("Category", category)
+    var categoryUrl = '/categories/' + (category || 9)
     $.ajax({
       url: categoryUrl,
       dataType: 'json',
       method: 'GET',
       success: function(films){
-        console.log(films)
         this.setState({films: films});
       }.bind(this),
       error: function(xhr,status,err){
@@ -28,17 +29,13 @@ var ContentContainer = React.createClass({
   },
   render: function() {
     var selectedFilm = this.state.selectedFilm
-    var selectedCategory = this.state.selected && this.state.selected.id
 
     return (
       <div id='content-container'>
-
         <FilmContainer
-        selectedFilm={selectedFilm} selectedCategory={selectedCategory}
+        selectedFilm={selectedFilm}
         showFilm={this.showFilm}
         films={this.state.films} />
-
-
       </div>
     );
   }
