@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  get 'films/:id/reviews' => 'films#reviews'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   resources :films, only: [:show, :index]
-  resources :reviews, except: [:index]
+  # resources :reviews, except: [:index]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

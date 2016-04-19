@@ -7,4 +7,9 @@ class FilmsController < ApplicationController
   def show
     @film = Film.find_by(id: params[:id])
   end
+
+  def reviews
+    @reviews = Review.where('film_id = ?', params[:id])
+  end
+
 end

@@ -3,9 +3,7 @@ var FilmContainer = React.createClass({
     return {films: this.props.films, selectedFilm: ''}
   },
   showFilm: function(data){
-
     this.props.showFilm(data)
-    // return {films: this.props.films, selectedFilm: ''}
   },
   componentWillReceiveProps: function(nextProps){
     this.setState({films: nextProps.films})
