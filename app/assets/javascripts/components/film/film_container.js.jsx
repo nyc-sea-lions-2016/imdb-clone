@@ -1,22 +1,7 @@
 var FilmContainer = React.createClass({
   getInitialState: function(){
-    return {films: []}
-  },
-  componentWillMount: function(){
-    this.loadFilmsFromServer()
-  },
-  loadFilmsFromServer: function(){
-    $.ajax({
-      url:'/films',
-      dataType: 'json',
-      method: 'GET',
-      success: function(films){
-        this.setState({films: films, selectedFilm: null});
-      }.bind(this),
-      error: function(xhr,status,err){
-        console.error(this.props.url, status, err.toString())
-      }.bind(this)
-    });
+
+    return {films: this.props.films, selectedFilm: ''}
   },
   showFilm: function(data){
     // debugger;

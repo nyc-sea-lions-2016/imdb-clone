@@ -6,7 +6,7 @@ var LeftNav = React.createClass({
     var self = this;
     var categoryNodes = this.props.categories.map(function(category){
       return (
-        <Category key={category.name} data={category} showCategory={self.showCategory}/>
+        <Category key={category.id} data={category} showCategory={self.showCategory}/>
       )
     })
     return (

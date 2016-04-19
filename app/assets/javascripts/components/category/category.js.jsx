@@ -1,7 +1,7 @@
 var Category = React.createClass({
   handleClick: function(e){
     e.preventDefault();
-    this.props.showCategory(this.props.data.name)
+    this.props.showCategory(this.props.data.id)
   },
   render: function(){
     return (

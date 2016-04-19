@@ -5,8 +5,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    # re-confirm that params have name and not categoryName
-    @category = Category.find_by(name: params[:name])
+    @category = Category.find_by(id: params[:id])
+    if @category
+      @films = Film.where(category_id: @category.id)
+    else
+      @films = Film.all
+    end
   end
 
 end
