@@ -18,22 +18,22 @@ var FilmContainer = React.createClass({
       }.bind(this)
     });
   },
-  showFilm: function(data){
-    var selected = this.state.films.filer(function(object){
-      return object.id == data
-    });
-    this.setState({selected: selected[0]})
-  },
-  handleFilmClick: function(){
-    render: function(id){
-      var selectedFilm = this.state.films.filter(function(object){
-        return object.id == data
-      });
-      this.setState({selectedFilm: selectedFilm[0]})
-
-      })
-    }
-  },
+  // showFilm: function(data){
+  //   var selected = this.state.films.filer(function(object){
+  //     return object.id == data
+  //   });
+  //   this.setState({selected: selected[0]})
+  // },
+  // handleFilmClick: function(){
+  //   render: function(data){
+  //     var selectedFilm = this.state.films.filter(function(object){
+  //       return object.id == data
+  //     });
+  //     this.setState({selectedFilm: selectedFilm[0]})
+  //
+  //     })
+  //   }
+  // },
   render: function(){
     var self = this;
     var selectedFilm = this.state.selected && this.state.selected.name
