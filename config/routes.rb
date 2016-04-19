@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  # devise_for :users
-  root 'application#index'
+  root 'films#index'
   resources :categories, only: [:index, :show]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }

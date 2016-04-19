@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable,
          :omniauthable,
-         :omniauth_providers => [:facebook]
+         :omniauth_providers => [:facebook, :twitter]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
