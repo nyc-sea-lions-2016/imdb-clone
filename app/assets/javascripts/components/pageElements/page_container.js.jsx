@@ -20,11 +20,12 @@ var PageContainer = React.createClass({
     });
   },
   showCategory: function(data){
-    this.setState({selected: data})
+    var chosenCategory = data
+    this.setState({selected: chosenCategory})
   },
   render: function() {
     var self = this;
-    var selectedCategory = this.state.selected && this.state.selected.name
+    var selectedCategory = this.state.selected && this.state.selected.id
     return (
       <div>
         <LeftNav

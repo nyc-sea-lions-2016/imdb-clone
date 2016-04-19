@@ -1,6 +1,5 @@
 var FilmList = React.createClass({
   handleClick: function(data){
-    debugger;
   },
   render: function() {
     var self = this;
