@@ -28,4 +28,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(params[:user])
   end
+
+  def sign_up
+  end
+
 end
