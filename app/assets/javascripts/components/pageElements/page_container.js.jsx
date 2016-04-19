@@ -11,12 +11,16 @@ var PageContainer = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(categories){
+        categories.unshift({name: 'All'})
         this.setState({categories: categories, selected: categories[0]});
       }.bind(this),
       error: function(xhr,status,err){
         console.error(this.props.url,status,err.toString())
       }.bind(this)
     });
+  },
+  showCategory: function(data){
+    this.setState({selected: data})
   },
   render: function() {
     var self = this;
@@ -25,8 +29,11 @@ var PageContainer = React.createClass({
       <div>
         <LeftNav
           categories={self.state.categories}
+          showCategory={self.showCategory}
         />
-        <ContentContainer selectedCategory={selectedCategory}/>
+        <ContentContainer
+          selectedCategory={selectedCategory}
+        />
       </div>
     );
   }

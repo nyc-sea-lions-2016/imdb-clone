@@ -1,20 +1,22 @@
 var LeftNav = React.createClass({
-  handleClick: function(){
-
+  showCategory: function(data){
+    this.props.showCategory(data)
   },
   render: function() {
+    var self = this;
+    var categoryNodes = this.props.categories.map(function(category){
+      return (
+        <Category key={category.name} data={category} showCategory={self.showCategory}/>
+      )
+    })
     return (
-
       <div id="sidebar" role="navigation">
           <div id="sidebar-nav">
             <ul className="nav nav-stacked">
-                <li ><a href="#" className='left-nav-button'> Movies</a></li>
-                <li ><a href="#" className='left-nav-button'> Categories</a></li>
-                <li ><a href="#" className='left-nav-button'> Actors</a></li>
+              {categoryNodes}
             </ul>
           </div>
       </div>
-
     );
   }
 });
