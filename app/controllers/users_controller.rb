@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.role_id = 1 if @user.role == nil
     if @user.save
       session[:id] = @user.id
     else

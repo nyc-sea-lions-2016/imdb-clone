@@ -24,9 +24,14 @@ CSV.foreach(filename = File.dirname(__FILE__) + "/popular_movies.csv", headers: 
     puts new_film.name
 end
 
+# Create 3 roles
+ROLES = ['regular', 'trusted', 'admin']
+ROLES.each do |role|
+  Role.create({name: role})
+end
+
 
 # Create 20 users
-ROLES = ['admin', 'regular', 'trusted']
 20.times do
   User.create!({
     email: Faker::Internet.safe_email,
