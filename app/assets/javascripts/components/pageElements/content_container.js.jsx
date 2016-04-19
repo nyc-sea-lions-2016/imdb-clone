@@ -24,17 +24,16 @@ var ContentContainer = React.createClass({
     this.setState({selectedFilm: data})
   },
   render: function() {
-    // var self = this;
-    var selectedFilm = this.state.selectedFilm && this.state.selectedFilm.name
+    var selectedFilm = this.state.selectedFilm
     var selectedCategory = this.state.selected && this.state.selected.id
     return (
       <div id='content-container'>
 
         <FilmContainer
-        selectedFilm={selectedFilm} selectedCategory={selectedCategory} films={this.state.films} />
+        selectedFilm={selectedFilm} selectedCategory={selectedCategory}
+        showFilm={this.showFilm}
+        films={this.state.films} />
 
-
-        {/*<FilmContainer selectedCategory={selectedCategory} films={self.state.films} />*/}
 
       </div>
     );

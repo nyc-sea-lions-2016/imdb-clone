@@ -1,8 +1,8 @@
 var Film = React.createClass({
   handleClick: function(e){
     e.preventDefault();
-    // debugger;
-    this.props.showFilm(this.props.data.name)
+
+    this.props.showFilm(this.props.data)
   },
   render: function() {
     return  (

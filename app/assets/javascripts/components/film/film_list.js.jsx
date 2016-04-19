@@ -1,14 +1,10 @@
 var FilmList = React.createClass({
-<<<<<<< HEAD
+
   showFilm: function(data){
     this.props.showFilm(data)
-=======
-  handleClick: function(data){
->>>>>>> master
   },
   render: function() {
     var self = this;
-
     var filmNodes = this.props.films.map(function(film){
       return (
         <Film key={film.id} data={film} showFilm={self.showFilm} />
