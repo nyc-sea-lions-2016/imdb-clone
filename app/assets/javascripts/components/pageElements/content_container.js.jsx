@@ -1,9 +1,12 @@
 var ContentContainer = React.createClass({
   getInitialState: function(){
-    return {films: [], selected: {name: 'All', id: 9}}
+    return {films: [], selected: {name: 'All', id: 9}, selectedFilm: ''}
   },
   componentWillMount: function(){
     this.showCategory();
+  },
+  componentWillReceiveProps: function(nextProps){
+    this.setState({selectedCategory: nextProps.selectedCategory})
   },
   showCategory: function(){
     var categoryUrl = '/categories/' + this.state.selected.id
@@ -20,12 +23,22 @@ var ContentContainer = React.createClass({
       }.bind(this)
     });
   },
+  showFilm: function(data){
+    this.setState({selectedFilm: data})
+  },
   render: function() {
-    var self = this;
+    var selectedFilm = this.state.selectedFilm
     var selectedCategory = this.state.selected && this.state.selected.id
+
     return (
       <div id='content-container'>
-        <FilmContainer selectedCategory={selectedCategory} films={self.state.films} />
+
+        <FilmContainer
+        selectedFilm={selectedFilm} selectedCategory={selectedCategory}
+        showFilm={this.showFilm}
+        films={this.state.films} />
+
+
       </div>
     );
   }
