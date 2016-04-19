@@ -28,7 +28,7 @@ var FilmShow = React.createClass({
           <span className='film-country'>Country: {film.country} </span>
         </section>
         <section className='film-reviews'>
-          <ReviewContainer film={film}/>
+          <ReviewContainer film={film} reviews={this.state.reviews}/>
         </section>
       </div>
     );

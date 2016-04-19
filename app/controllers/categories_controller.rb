@@ -7,8 +7,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by(id: params[:id])
     if @category
-      binding.pry
-      @films = Film.where(category_id: @category.id)
+      @films = @category.films
     else
       @films = Film.all
     end
