@@ -18,11 +18,11 @@ var FilmContainer = React.createClass({
       )
     } else if (selectedFilm===""){
       return(
-      <FilmList films={self.state.films} showFilm={self.showFilm}/>
+        <FilmList films={self.state.films} showFilm={self.showFilm}/>
       );
     } else {
       return(
-      <FilmShow film={selectedFilm}/>
+        <FilmShow film={selectedFilm}/>
       );
     }
 });
