@@ -6,9 +6,9 @@ var Category = React.createClass({
   render: function(){
     debugger
     return (
-      <li className='list-group-item'>
-        <a onClick={this.handleClick}>
-          <span>{this.props.data.name}</span>
+      <li className='left-nav-button'>
+        <a href='#' onClick={this.handleClick}>
+          {this.props.data.name}
         </a>
       </li>
     )

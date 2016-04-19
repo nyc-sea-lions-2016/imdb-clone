@@ -3,7 +3,7 @@ var ContentContainer = React.createClass({
     return {categories: []}
   },
   componentWillMount: function(){
-    this.loadCategoriesFromServer()
+
   },
   loadCategoriesFromServer: function(){
     $.ajax({
@@ -29,7 +29,6 @@ var ContentContainer = React.createClass({
     var selectedCategory = this.state.selected && this.state.selected.name
     return (
       <div id='content-container'>
-        <CategoriesContainer    categories={self.state.categories} selectedCategory={selectedCategory}/>
         <FilmContainer />
       </div>
     );
