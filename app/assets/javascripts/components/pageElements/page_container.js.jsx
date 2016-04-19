@@ -1,6 +1,6 @@
 var PageContainer = React.createClass({
   getInitialState: function(){
-    return {categories: [], selected: {name: 'All', id: 9} }
+    return {categories: [], selectedCategory: {name: 'All', id: 9} }
   },
   componentWillMount: function(){
     this.loadCategoriesFromServer();
@@ -12,7 +12,7 @@ var PageContainer = React.createClass({
       method: 'GET',
       success: function(categories){
         categories.unshift({name: 'All', id: 9})
-        this.setState({categories: categories, selected: categories[0]});
+        this.setState({categories: categories, selectedCategory: categories[0]});
       }.bind(this),
       error: function(xhr,status,err){
         console.error(this.props.url,status,err.toString())
@@ -21,11 +21,12 @@ var PageContainer = React.createClass({
   },
   showCategory: function(data){
     var chosenCategory = data
-    this.setState({selected: chosenCategory})
+    this.setState({selectedCategory: chosenCategory})
+    this.forceUpdate()
   },
   render: function() {
     var self = this;
-    var selectedCategory = this.state.selected && this.state.selected.id
+    var selectedCategory = this.state.selectedCategory && this.state.selectedCategory.id
     return (
       <div>
         <LeftNav

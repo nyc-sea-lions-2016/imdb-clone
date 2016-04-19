@@ -5,6 +5,9 @@ var ContentContainer = React.createClass({
   componentWillMount: function(){
     this.showCategory();
   },
+  componentWillReceiveProps: function(nextProps){
+    this.setState({selectedCategory: nextProps.selectedCategory})
+  },
   showCategory: function(){
     var categoryUrl = '/categories/' + this.state.selected.id
     $.ajax({
@@ -26,6 +29,7 @@ var ContentContainer = React.createClass({
   render: function() {
     var selectedFilm = this.state.selectedFilm
     var selectedCategory = this.state.selected && this.state.selected.id
+
     return (
       <div id='content-container'>
 
