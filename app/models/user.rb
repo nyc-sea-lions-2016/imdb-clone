@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   belongs_to :role
   has_many :reviews
   has_many :votes
@@ -15,9 +14,19 @@ class User < ActiveRecord::Base
          # :confirmable,
          :lockable,
          :timeoutable,
-         :omniauthable,
          :recoverable,
          :rememberable,
          :trackable,
-         :validatable
+         :validatable,
+         :omniauthable,
+         :omniauth_providers => [:facebook]
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
 end
