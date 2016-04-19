@@ -6,7 +6,6 @@ var ContentContainer = React.createClass({
     this.showCategory();
   },
   componentWillReceiveProps: function(nextProps){
-    debugger
     if (nextProps.showReviews == true){
       this.showReviews();
     } else {
@@ -51,6 +50,7 @@ var ContentContainer = React.createClass({
         selectedFilm={selectedFilm}
         showFilm={this.showFilm}
         films={this.state.films}
+        reviews={this.state.reviews}
         />
       </div>
     );

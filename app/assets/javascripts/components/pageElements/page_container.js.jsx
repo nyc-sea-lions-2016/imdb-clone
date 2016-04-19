@@ -24,7 +24,7 @@ var PageContainer = React.createClass({
   },
   showCategory: function(data){
     var chosenCategory = data
-    this.setState({selectedCategory: chosenCategory})
+    this.setState({selectedCategory: chosenCategory, showReviews: false})
     this.forceUpdate()
   },
   showReviews: function(){
