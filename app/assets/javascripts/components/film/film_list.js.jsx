@@ -1,6 +1,7 @@
 var FilmList = React.createClass({
   showFilm: function(data){
     this.props.showFilm(data)
+    debugger;
   },
   render: function() {
     var self = this;
@@ -11,7 +12,7 @@ var FilmList = React.createClass({
     });
 
     return (
-      <div className='filmList list-group' showFilm={this.handleClick}>
+      <div className='filmList list-group'>
         <h3>Films</h3>
         <ul>
           {filmNodes}
