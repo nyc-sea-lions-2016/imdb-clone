@@ -9,10 +9,10 @@ var TopNav = React.createClass({
           </div>
           <div className='collapse navbar-collapse'>
             <ul className='nav navbar-nav navbar-right'>
-              <li><a href='#'>Register</a></li>
-              <li><a href='#'>Login</a></li>
+              <li><a href='/users/sign_up'>Register</a></li>
+              <li><a href='/users/login'>Login</a></li>
               <li><a href='#'>Profile</a></li>
-              <li><a href='#'>Logout</a></li>
+              <li><a href='/users/sign_out'>Logout</a></li>
             </ul>
           </div>
         </div>

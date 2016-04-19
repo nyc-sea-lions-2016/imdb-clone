@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'application#index'
   resources :categories, only: [:index, :show]
 
@@ -19,11 +20,6 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
-  post 'login' => 'session#login'
-  post 'logout' => 'session#logout'
-
-  resources :users, except: :destroy
 
   # Example resource route with options:
   #   resources :products do
