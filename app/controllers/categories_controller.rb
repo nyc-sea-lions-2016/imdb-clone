@@ -9,7 +9,8 @@ class CategoriesController < ApplicationController
     if @category
       @films = @category.films
     else
-      @films = Film.all
+      @films = Film.includes(:ratings).all
+      @films.to_json({methods: :average_rating})
     end
   end
 
