@@ -12,6 +12,7 @@ var FilmShow = React.createClass({
       <div className='film-show'>
         <section className='film-info'>
           <h3>{film.name} / Average Rating: {film.rating}</h3>
+          <RatingContainer film={film}/>
           <p className='film-year'><strong>Year:</strong> {film.year} </p>
           <p className='film-director'><strong>Director: </strong>{film.director} </p>
           <p className='film-oscars'><strong>Oscar Count: </strong>{film.oscar_count} </p>
