@@ -18,7 +18,7 @@ var FilmContainer = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(reviews){
-        this.setState({reviews: reviews})
+        this.setState({reviews: reviews, selectedFilm: ""})
       }.bind(this),
       error: function(xhr,status,err){
         console.error(this.props.url,status,err.toString())
@@ -29,7 +29,7 @@ var FilmContainer = React.createClass({
     var self = this;
     var selectedFilm = this.state.selectedFilm
     var reviews = this.state.reviews
-    if (selectedFilm==="" && reviews) {
+    if (selectedFilm==="" && reviews != undefined && reviews.length > 0) {
       return(
         <ReviewList reviews={reviews}/>
       );

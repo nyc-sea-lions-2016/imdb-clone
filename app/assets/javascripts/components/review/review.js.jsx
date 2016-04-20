@@ -1,10 +1,11 @@
 var Review = React.createClass({
   render: function(){
-
+    var reviewContent = this.props.data.content
+    var reviewCreatedAt = this.props.data.created_at
     return(
       <li>
-        <p>{this.props.data.user}</p>
-        <p>{this.props.data.content}</p>
+        <p>{reviewContent}</p>
+        <p>Created at: {reviewCreatedAt}</p>
       </li>
     )
   }
