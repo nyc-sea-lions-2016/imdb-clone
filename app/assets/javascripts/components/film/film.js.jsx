@@ -9,7 +9,7 @@ var Film = React.createClass({
         <a href='#' onClick={this.handleClick}>
           <section className='film list-group-item'>
           <div className='media-left'>
-            <a href="#"><img id='review-image' className='media-object' src="http://images.redbox.com/Images/EPC/Kiosk/8003.jpg" alt="movie review image"/></a>
+            <img id='review-image' className='media-object' src="http://images.redbox.com/Images/EPC/Kiosk/8003.jpg" alt="movie review image"/>
           </div>
           <div className="media-body">
             <h4 className='film-name'>{this.props.data.name}</h4><div>Average Rating:{this.props.data.rating}</div>
