@@ -42,8 +42,12 @@ var ContentContainer = React.createClass({
   showFilm: function(data){
     this.setState({selectedFilm: data})
   },
+  // showUser: function(){
+  //   <UserContainer userDetail={this.props} />
+  // },
   render: function() {
     var selectedFilm = this.state.selectedFilm
+    var self = this
     return (
       <div id='content-container'>
         <FilmContainer
@@ -51,6 +55,7 @@ var ContentContainer = React.createClass({
         showFilm={this.showFilm}
         films={this.state.films}
         reviews={this.state.reviews}
+        // this.showUser();
         />
       </div>
     );

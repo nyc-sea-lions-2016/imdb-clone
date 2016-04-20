@@ -4,6 +4,7 @@ var PageContainer = React.createClass({
             selectedCategory: {name: 'All', id: 9},
             loggedIn: false,
             user: '',
+            userDetail: ''
     }
   },
   componentWillMount: function(){
@@ -30,6 +31,11 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
+  userDetail: function() {
+    $.get('/users/profile').done(function(response){
+      this.setState({userDetail: response})
+    })
+  },
   shouldComponentUpdate: function(){
     return true
   },
@@ -46,9 +52,10 @@ var PageContainer = React.createClass({
     var selectedCategory = this.state.selectedCategory && this.state.selectedCategory.id
     var loggedIn = this.state.loggedIn
     var user = this.state.user
+    var userDetail = this.state.userDetail
     return (
       <div>
-        <TopNav loggedIn={loggedIn} user={user}/>
+        <TopNav loggedIn={loggedIn} user={user} userDetail={self.userDetail}/>
         <LeftNav
           categories={self.state.categories}
           showCategory={self.showCategory}
@@ -57,6 +64,7 @@ var PageContainer = React.createClass({
         <ContentContainer
           selectedCategory={selectedCategory}
           showReviews={self.state.showReviews}
+          userDetail={userDetail}
         />
       </div>
     );
