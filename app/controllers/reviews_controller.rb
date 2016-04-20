@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-
+      render json: @review
     else
       #errors
     end
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-     params.permit(:content).merge(user: current_user)
+     params.permit(:content,:film_id).merge(user: current_user)
   end
 
 end

@@ -11,11 +11,11 @@ var FilmShow = React.createClass({
     return (
       <div className='film-show'>
         <section className='film-info'>
-          <h3>{film.name}</h3>
-          <span className='film-year'>Year: {film.year}, </span>
-          <span className='film-director'>Director: {film.director}, </span>
-          <span className='film-oscars'>Oscar Count: {film.oscar_count}, </span>
-          <span className='film-country'>Country: {film.country} </span>
+          <h3>{film.name} / Average Rating: {film.rating}</h3>
+          <p className='film-year'><strong>Year:</strong> {film.year} </p>
+          <p className='film-director'><strong>Director: </strong>{film.director} </p>
+          <p className='film-oscars'><strong>Oscar Count: </strong>{film.oscar_count} </p>
+          <p className='film-country'><strong>Country: </strong>{film.country} </p>
         </section>
         <section className='film-reviews'>
           <ReviewContainer film={film} reviews={self.state.reviews}/>

@@ -1,4 +1,5 @@
 var ReviewForm = React.createClass({
+
   getInitialState: function(){
     return { film: this.props.film, content: ''}
   },
@@ -7,15 +8,18 @@ var ReviewForm = React.createClass({
   },
   handleSubmit: function(e){
     e.preventDefault();
+    var data = {content: this.state.content.trim(), film_id: this.state.film.id }
+    this.props.onReviewSubmit(data)
     this.setState({ content:'' })
   },
   render: function(){
-    var filmId = this.state.film.id
     return (
-      <form className="reviewForm" onSubmit={this.handleSubmit}>
-        <textarea placeholder='Leave a review ...' name='content' value={this.state.content} onChange={this.handleContentChange} />
-        <input type='hidden' name='film_id' value={filmId} />
-        <input type='submit' value='Post' />
+      <form className="review-form form-group" onSubmit={this.handleSubmit}>
+        <textarea id='review-input' className='form-control' rows='5' placeholder='Leave a review ...' value={this.state.content} onChange={this.handleContentChange} />
+        <input type='hidden' value={this.state.film.id} />
+        <div id='review-btn'>
+          <input className='btn btn-default' type='submit' value='Post'/>
+        </div>
       </form>
     );
   }
