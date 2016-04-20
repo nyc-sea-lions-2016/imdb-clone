@@ -9,10 +9,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @review = Review.new(review_params)
+    @review = Review.new({
+      user_id: review_params[:user][:id],
+      content: review_params[:content],
+      film_id: review_params[:filmId]
+      })
     if @review.save
-
+      render json: @review
     else
       #errors
     end
@@ -29,7 +32,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-     params.permit(:content).merge(user: current_user)
+     params.permit(:content,:filmId).merge(user: current_user)
   end
 
 end

@@ -5,10 +5,9 @@ class VotesController < ApplicationController
   end
 
   def create
-    binding.pry
-    @vote = Vote.new({user_id: current_user.id})
+    @vote = Vote.new({user_id: current_user.id, review_id: params["reviewId"].to_i, value: params["voteValue"].to_i})
     if @vote.save
-
+      # do nothing ...
     else
       # return error (i.e. someone has already submited a vote for this review)
     end

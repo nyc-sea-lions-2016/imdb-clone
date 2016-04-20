@@ -1,15 +1,22 @@
 .new_user {
-  border: 1px solid black;
-  height: 50%;
-  width: 50%;
-  position: absolute;
-  margin: 50px 50px -50px -50px;
-  left: 50%;
-  right: 50%;
+  border: 1px solid #D3D3D3;
+  position: relative;
+  max-height: 50%;
+  max-width: 50%;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 25px;
+  margin-top: 25px
 }
 
-h2 {
-  margin-left: 25px;
+.new_user > div > span {
+  margin-left: 3%;
+  margin-right: 3%;
+
+}
+
+.new_user > a {
+  display: inline;
 }
 
 .notification {

@@ -1,7 +1,8 @@
 class FilmsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @films = Film.all
+    @films = Film.includes(:ratings).all
+    @film.to_json({methods: :average_rating})
   end
 
   def show

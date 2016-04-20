@@ -57,3 +57,12 @@
 .review-form {
   margin-left: 32%;
 }
+
+#review-input{
+  width: 50%;
+}
+
+#review-btn {
+  width:50%;
+  text-align: center;
+}

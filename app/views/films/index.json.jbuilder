@@ -7,5 +7,5 @@ json.array!@films do |film|
   json.imdb_link film.imdb_link
   json.country film.country
   json.year film.year
-  json.rating film.average_rating
+  json.rating film.rating
 end
