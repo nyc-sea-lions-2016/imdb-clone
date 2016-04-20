@@ -3,7 +3,7 @@ var AllReviewList = React.createClass({
     var self = this;
     var reviewNodes = this.props.reviews.map(function(review){
       return (
-        <Review key={review.id} data={review} />
+        <FullReview key={review.id} data={review} />
       )
     });
 

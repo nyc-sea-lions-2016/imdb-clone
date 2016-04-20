@@ -1,4 +1,26 @@
-var Review = React.createClass({
+var FullReview = React.createClass({
+  upVote: function(e){
+    e.preventDefault();
+    updateVotes({voteValue: 1})
+  },
+  downVote: function(e){
+    e.preventDefault();
+    updateVotes({voteValue: -1})
+  },
+  updateVotes: function(voteInfo){
+    $.ajax({
+      url: '/votes',
+      dataType: 'json',
+      method: 'POST',
+      data: voteInfo,
+      success: function(reviews){
+        //remove user's ability to add additional votes to this review
+      }.bind(this),
+      error: function(xhr,status,err){
+        // tell user that vote could not be saved for some reason
+      }.bind(this)
+    })
+  },
   render: function(){
     var reviewContent = this.props.data.content
     var reviewCreatedAt = this.props.data.created_at
