@@ -5,9 +5,13 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @review = Review.new
   end
 
   def create
+    binding.pry
+    @review = Review.new(review_params)
+    @review.save
   end
 
   def show

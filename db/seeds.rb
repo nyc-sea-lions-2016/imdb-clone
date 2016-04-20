@@ -40,14 +40,16 @@ end
     })
 end
 
-
-#create 100 reviews
-100.times do
-  Review.create!({
-    content: Faker::Lorem.paragraph,
-    film_id: (1..10).to_a.sample,
-    user_id: (1..20).to_a.sample,
-    })
+films = Film.all
+#create 5 reviews for each movie
+films.each do |film|
+  5.times do
+    Review.create!({
+      content: Faker::Lorem.paragraph,
+      film_id: film.id,
+      user_id: (1..20).to_a.sample,
+      })
+    end
 end
 
 #create 200 comments
@@ -61,10 +63,12 @@ TYPES = ['Review', 'Film']
     })
 end
 
-1000.times do
-  Rating.create!({
-    film_id: (1..Film.count).to_a.sample,
-    user_id: (1..20).to_a.sample,
-    value: (0..5).to_a.sample
-    })
+films.each do |film|
+  50.times do
+    Rating.create!({
+      film_id: film.id,
+      user_id: (1..20).to_a.sample,
+      value: (1..5).to_a.sample
+      })
+  end
 end

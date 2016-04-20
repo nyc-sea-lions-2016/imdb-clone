@@ -1,4 +1,5 @@
 var ReviewList = React.createClass({
+
   render: function() {
     var self = this;
     var reviewNodes = this.props.reviews.map(function(review){
@@ -6,7 +7,6 @@ var ReviewList = React.createClass({
         <Review key={review.id} data={review} />
       )
     });
-
     return (
       <div className='reviewList list-group'>
         <h3>Reviews</h3>

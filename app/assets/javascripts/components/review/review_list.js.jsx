@@ -11,7 +11,7 @@ var ReviewList = React.createClass({
         )
       })
       return (
-        <section className='reviews'>
+        <section className='reviews list-group'>
           <h4>Reviews for {this.props.film.name}</h4>
           <ul>
             {reviewNodes}
