@@ -11,7 +11,11 @@ class ReviewsController < ApplicationController
   def create
     binding.pry
     @review = Review.new(review_params)
-    @review.save
+    if @review.save
+
+    else
+      #errors
+    end
   end
 
   def show

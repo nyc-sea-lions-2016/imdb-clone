@@ -3,7 +3,7 @@ var ReviewList = React.createClass({
     this.setState({reviews: nextProps.reviews})
   },
   render: function(){
-      //var review = this.props.film
+      var review = this.props.film
       var reviewNodes = this.props.reviews.map(function(review){
         return (
           <Review key={review.id} data={review}/>
