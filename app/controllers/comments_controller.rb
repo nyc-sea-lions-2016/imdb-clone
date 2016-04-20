@@ -9,9 +9,6 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
-  def destroy
-  end
-
   private
 
   def comment_params

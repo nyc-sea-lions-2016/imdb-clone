@@ -16,7 +16,6 @@ var ReviewContainer = React.createClass({
         this.setState({reviews: [response].concat(reviews)})
       }.bind(this),
       error: function(xhr, status, err) {
-        debugger;
         console.error(this.props.url,status,err.toString());
       }.bind(this)
     });
