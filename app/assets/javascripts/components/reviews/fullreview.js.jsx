@@ -1,11 +1,11 @@
 var FullReview = React.createClass({
   upVote: function(e){
     e.preventDefault();
-    updateVotes({voteValue: 1})
+    this.updateVotes({voteValue: 1, reviewId: this.props.data.id})
   },
   downVote: function(e){
     e.preventDefault();
-    updateVotes({voteValue: -1})
+    this.updateVotes({voteValue: -1, reviewId: this.props.data.id})
   },
   updateVotes: function(voteInfo){
     $.ajax({
