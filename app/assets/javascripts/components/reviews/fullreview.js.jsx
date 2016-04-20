@@ -1,11 +1,11 @@
 var FullReview = React.createClass({
   upVote: function(e){
     e.preventDefault();
-    updateVotes({voteValue: 1})
+    this.updateVotes({voteValue: 1, reviewId: this.props.data.id})
   },
   downVote: function(e){
     e.preventDefault();
-    updateVotes({voteValue: -1})
+    this.updateVotes({voteValue: -1, reviewId: this.props.data.id})
   },
   updateVotes: function(voteInfo){
     $.ajax({
@@ -20,6 +20,12 @@ var FullReview = React.createClass({
         // tell user that vote could not be saved for some reason
       }.bind(this)
     })
+  },
+  updateComments: function(){
+    this.loadCommentsFromServer()
+  },
+  loadCommentsFromServer: function(){
+    // ajax call to grab new comment and append it to state then refresh page?
   },
   render: function(){
     var reviewContent = this.props.data.content
@@ -43,10 +49,7 @@ var FullReview = React.createClass({
         <div className='comment-area'>
           <h5>Comments:</h5>
           <p>{comments[0]}</p>
-          <div className='form-group'>
-            <textarea className="form-control" rows="3" id='comment' placeholder="Leave a comment"></textarea>
-            <button className='btn btn-default' type='button'>Submit</button>
-          </div>
+          <CommentForm onUpdate={this.updateComments} />
         </div>
       </li>
     )
