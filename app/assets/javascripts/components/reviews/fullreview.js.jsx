@@ -22,16 +22,18 @@ var FullReview = React.createClass({
     })
   },
   updateComments: function(){
+    debugger;
     this.loadCommentsFromServer()
   },
   loadCommentsFromServer: function(){
-    // ajax call to grab new comment and append it to state then refresh page?
+    // ajax call to grab new comment and append it to state then refresh page? this.props.comments has full list of comments. add new comment to this list.
   },
   render: function(){
     var reviewContent = this.props.data.content
     var reviewCreatedAt = this.props.data.created_at
     var filmName = this.props.data.film.name
     var user = this.props.data.user.email
+    var reviewId = this.props.data.id
     var comments = ["There are no comments for this review!"]
     return(
       <li className='review'>
@@ -49,7 +51,7 @@ var FullReview = React.createClass({
         <div className='comment-area'>
           <h5>Comments:</h5>
           <p>{comments[0]}</p>
-          <CommentForm onUpdate={this.updateComments} />
+          <CommentForm reviewId={reviewId} onUpdate={this.updateComments} />
         </div>
       </li>
     )
