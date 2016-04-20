@@ -11,7 +11,7 @@ var CommentForm = React.createClass({
     var commentContent = this.state[''].trim();
     var reviewId = this.props.reviewId
     var url = '/reviews/' + reviewId + '/comments'
-    var content = {comment: {content: commentContent}};
+    var content = {comment: {content: commentContent, commentable_type: 'Review', commentable_id: reviewId}};
     if (!commentContent){
       return;
     }
@@ -19,9 +19,9 @@ var CommentForm = React.createClass({
       url: url,
       type: 'POST',
       dataType: 'json',
-      data: contact,
+      data: content,
       success: function(response){
-        this.props.onUpdate();
+        this.props.onUpdate(response);
       }.bind(this),
       error: function(xhr,status,err){
         //add error handling
