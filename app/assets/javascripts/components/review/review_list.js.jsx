@@ -13,7 +13,7 @@ var ReviewList = React.createClass({
       return (
         <section className='reviews'>
           <h4>Reviews for {this.props.film.name}</h4>
-          <ul>
+          <ul id='review-list'>
             {reviewNodes}
           </ul>
         </section>
