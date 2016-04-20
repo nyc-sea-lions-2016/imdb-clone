@@ -12,7 +12,7 @@ var TopNav = React.createClass({
     if (this.props.loggedIn == true) {
       return (
         <ul className='nav navbar-nav navbar-right'>>
-          <li><a href='/users/1'>{this.props.user}</a></li>
+          <li><a href={'/users/profile/' + this.props.user}>{this.props.user}</a></li>
           <li><a href='/users/sign_out' onClick={this.userSignOut}>Logout</a></li>
         </ul>
       )}

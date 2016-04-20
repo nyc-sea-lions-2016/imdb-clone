@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'sessions/user' => 'sessions#user'
   get 'users/:id' => 'users#show'
+  get 'users/profile/:id' => 'users#profile'
 
   get 'films/:id/reviews' => 'films#reviews'
 
