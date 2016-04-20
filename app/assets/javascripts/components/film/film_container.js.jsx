@@ -1,12 +1,12 @@
 var FilmContainer = React.createClass({
   getInitialState: function(){
-    return {films: this.props.films, selectedFilm: '', reviews: []}
+    return {films: this.props.films, selectedFilm: '', allReviews: []}
   },
   showFilm: function(data){
     this.props.showFilm(data)
   },
   componentWillReceiveProps: function(nextProps){
-    this.setState({films: nextProps.films, selectedFilm: nextProps.selectedFilm, reviews: nextProps.reviews})
+    this.setState({films: nextProps.films, selectedFilm: nextProps.selectedFilm, allReviews: nextProps.reviews})
     if(nextProps.selectedFilm != ''){
       this.loadReviewsFromServer(nextProps.selectedFilm)
     };
@@ -18,7 +18,7 @@ var FilmContainer = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(reviews){
-        this.setState({reviews: reviews, selectedFilm: ""})
+        this.setState({reviews: reviews})
       }.bind(this),
       error: function(xhr,status,err){
         console.error(this.props.url,status,err.toString())
@@ -28,10 +28,10 @@ var FilmContainer = React.createClass({
   render: function(){
     var self = this;
     var selectedFilm = this.state.selectedFilm
-    var reviews = this.state.reviews
-    if (selectedFilm==="" && reviews != undefined && reviews.length > 0) {
+    var allReviews = this.state.allReviews
+    if (selectedFilm==="" && allReviews != undefined && allReviews.length > 0) {
       return(
-        <ReviewList reviews={reviews}/>
+        <ReviewList reviews={allReviews}/>
       );
     } else if (selectedFilm===""){
       return(
