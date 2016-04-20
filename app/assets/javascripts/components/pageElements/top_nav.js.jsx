@@ -19,10 +19,13 @@ var TopNav = React.createClass({
     else {
       return (
       <ul className='nav navbar-nav navbar-right'>
-        <li><a href='/users/sign_up'>Register</a></li>
+        <li><a href='/users/sign_up' onClick={this.showLogin}>Register</a></li>
         <li><a href='/users/sign_in'>Login</a></li>
       </ul>
     )}
+  },
+  showLogin: function() {
+
   },
   render: function() {
     return (
