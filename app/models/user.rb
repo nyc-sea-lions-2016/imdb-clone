@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.email = auth.info.email
       if !user.email
-        user.email = 'Profile'
+        user.email = SecureRandom.base64(12)
       end
       user.password = Devise.friendly_token[0,20]
     end
