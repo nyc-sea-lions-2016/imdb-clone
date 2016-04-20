@@ -12,7 +12,8 @@ var ReviewContainer = React.createClass({
       method: 'POST',
       data: newReview,
       success: function(response) {
-        console.log(response)
+        var reviews = this.state.reviews
+        this.setState({reviews: [response].concat(reviews)})
       }.bind(this),
       error: function(xhr, status, err) {
         debugger;
