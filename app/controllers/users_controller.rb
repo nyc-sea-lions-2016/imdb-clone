@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
-
   def new
     @user = User.new
   end
@@ -17,16 +13,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
+  def profile
+    @user = User.includes(:reviews, :votes, :ratings, :role).find(current_user)
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.update(params[:user])
-  end
 end
