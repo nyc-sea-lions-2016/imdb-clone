@@ -21,12 +21,8 @@ var FullReview = React.createClass({
       }.bind(this)
     })
   },
-  updateComments: function(){
-    debugger;
-    this.loadCommentsFromServer()
-  },
-  loadCommentsFromServer: function(){
-    // ajax call to grab new comment and append it to state then refresh page? this.props.comments has full list of comments. add new comment to this list.
+  updateComments: function(comment){
+    this.setState({comments: this.props.data.comments.merge(comment)})
   },
   render: function(){
     var reviewContent = this.props.data.content
@@ -34,7 +30,7 @@ var FullReview = React.createClass({
     var filmName = this.props.data.film.name
     var user = this.props.data.user.email
     var reviewId = this.props.data.id
-    var comments = ["There are no comments for this review!"]
+    var comments = this.props.data.comments
     return(
       <li className='review'>
         <div className="media well well-lg">
@@ -50,7 +46,7 @@ var FullReview = React.createClass({
         </div>
         <div className='comment-area'>
           <h5>Comments:</h5>
-          <p>{comments[0]}</p>
+            <p>No one has commented on this review!</p>
           <CommentForm reviewId={reviewId} onUpdate={this.updateComments} />
         </div>
       </li>
