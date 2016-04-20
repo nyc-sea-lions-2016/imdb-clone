@@ -1,0 +1,33 @@
+.new_user {
+  border: 1px solid #D3D3D3;
+  position: relative;
+  max-height: 50%;
+  max-width: 50%;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  margin-top: 25px
+}
+
+.new_user > div > span {
+  margin-left: 3%;
+  margin-right: 3%;
+
+}
+
+.new_user > a {
+  display: inline;
+}
+
+.notification {
+  margin-left: 150px;
+}
+
+#notice {
+  color: green;
+}
+
+#alert {
+  color: red;
+}

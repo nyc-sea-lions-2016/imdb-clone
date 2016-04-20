@@ -1,0 +1,32 @@
+<%= react_component('TopNav') %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h2>Login</h2>
+  <hr>
+  <div>
+    <a href="/users/auth/facebook" class="btn btn-primary">Use Facebook</a>
+    <a href="/users/auth/twitter" class="btn btn-info">Use Twitter</a>
+  </div>
+  <%= devise_error_messages! %>
+  <h3>Email</h3>
+  <div class="list-group-item">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="list-group-item">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  <% if devise_mapping.rememberable? -%><br />
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+  <% end -%>
+  </div>
+
+  <div class="list-group-item">
+    <input type="submit" name="commit" value="Login" class="btn btn-success">
+    <span>or</span>
+    <a href="/users/sign_up" class="btn btn-default">Register</a>
+  </div>
+<% end %>
+
