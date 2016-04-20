@@ -7,15 +7,19 @@ var ReviewForm = React.createClass({
   },
   handleSubmit: function(e){
     e.preventDefault();
+    var content = this.state.content.trim()
+    var filmId = this.state.film.id
     this.setState({ content:'' })
   },
   render: function(){
     var filmId = this.state.film.id
     return (
-      <form className="reviewForm" onSubmit={this.handleSubmit}>
-        <textarea placeholder='Leave a review ...' name='content' value={this.state.content} onChange={this.handleContentChange} />
+      <form className="review-form" onSubmit={this.handleSubmit}>
+        <textarea rows='5' cols='50' placeholder='Leave a review ...' name='content' value={this.state.content} onChange={this.handleContentChange} />
         <input type='hidden' name='film_id' value={filmId} />
-        <input type='submit' value='Post' />
+        <div>
+          <input type='submit' value='Post' />
+        </div>
       </form>
     );
   }

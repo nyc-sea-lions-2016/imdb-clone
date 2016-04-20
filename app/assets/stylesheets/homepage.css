@@ -43,13 +43,17 @@
 }
 
 .review {
-  list-style-type: none
+  list-style-type: none;
 }
 
 .film-show {
-  margin-left: 25px
+  margin-left: 25px;
 }
 
 .filmList > h3 {
-  margin-left: 25px
+  margin-left: 25px;
+}
+
+.review-form {
+  margin-left: 32%;
 }
