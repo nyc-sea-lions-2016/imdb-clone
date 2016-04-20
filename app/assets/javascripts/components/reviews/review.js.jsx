@@ -1,9 +1,13 @@
 var Review = React.createClass({
-  upVote: function(){
+  upVote: function(e){
+    e.preventDefault();
+
     //send request to server to add a positive vote to this review
     //remove user's ability to add additional votes to this review
   },
-  downVote: function(){
+  downVote: function(e){
+    e.preventDefault();
+    
     //send request to server to a negative vote to this review
     //remove user's ability to add additional votes to this review
   },
@@ -29,7 +33,10 @@ var Review = React.createClass({
         <div className='comment-area'>
           <h5>Comments:</h5>
           <p>{comments[0]}</p>
-          <textarea class="form-control" rows="3" placeholder="Leave a comment"></textarea>
+          <div className='form-group'>
+            <textarea className="form-control" rows="3" id='comment' placeholder="Leave a comment"></textarea>
+            <button className='btn btn-default' type='button'>Submit</button>
+          </div>
         </div>
       </li>
     )
