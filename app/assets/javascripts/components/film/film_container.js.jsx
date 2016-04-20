@@ -31,7 +31,7 @@ var FilmContainer = React.createClass({
     var allReviews = this.state.allReviews
     if (selectedFilm==="" && allReviews != undefined && allReviews.length > 0) {
       return(
-        <ReviewList reviews={allReviews}/>
+        <AllReviewList reviews={allReviews}/>
       );
     } else if (selectedFilm===""){
       return(
