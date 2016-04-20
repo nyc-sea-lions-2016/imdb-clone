@@ -8,6 +8,7 @@ var Review = React.createClass({
     //remove user's ability to add additional votes to this review
   },
   render: function(){
+    debugger;
     var reviewContent = this.props.data.content
     var reviewCreatedAt = this.props.data.created_at
     var filmName = this.props.data.film.name
