@@ -6,6 +6,5 @@ json.user do
     json.film review.film.name
     json.content review.content
   end
-  json.votes @user.votes.each do |vote|
 end
 
