@@ -1,0 +1,25 @@
+.new_user {
+  border: 1px solid black;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  margin: 50px 50px -50px -50px;
+  left: 50%;
+  right: 50%;
+}
+
+h2 {
+  margin-left: 25px;
+}
+
+.notification {
+  margin-left: 150px;
+}
+
+#notice {
+  color: green;
+}
+
+#alert {
+  color: red;
+}
