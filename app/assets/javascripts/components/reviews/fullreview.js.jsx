@@ -21,6 +21,12 @@ var FullReview = React.createClass({
       }.bind(this)
     })
   },
+  updateComments: function(){
+    this.loadCommentsFromServer()
+  },
+  loadCommentsFromServer: function(){
+    // ajax call to grab new comment and append it to state then refresh page?
+  },
   render: function(){
     var reviewContent = this.props.data.content
     var reviewCreatedAt = this.props.data.created_at
@@ -43,10 +49,7 @@ var FullReview = React.createClass({
         <div className='comment-area'>
           <h5>Comments:</h5>
           <p>{comments[0]}</p>
-          <div className='form-group'>
-            <textarea className="form-control" rows="3" id='comment' placeholder="Leave a comment"></textarea>
-            <button className='btn btn-default' type='button'>Submit</button>
-          </div>
+          <CommentForm onUpdate={this.updateComments} />
         </div>
       </li>
     )
