@@ -5,28 +5,29 @@ var ReviewContainer = React.createClass({
   componentWillReceiveProps: function(nextProps){
     this.setState({reviews: nextProps.reviews})
   },
-  handleReviewSubmit: function(review){
-    // debugger;
-  $.ajax({
-    url: '/reviews',
-    dataType: 'json',
-    type: 'POST',
-    data: review,
-    success: function(response) {
-      // debugger;
-      $('.reviewList').prepend(response);
-    }.bind(this),
-    error: function(xhr, status, err) {
-      console.error(this.props.url,status,err.toString());
-    }.bind(this)
-  });
-},
+  handleReviewSubmit: function(newReview){
+    $.ajax({
+      url: '/reviews',
+      dataType: 'json',
+      method: 'POST',
+      data: newReview,
+      success: function(response) {
+        console.log(response)
+      }.bind(this),
+      error: function(xhr, status, err) {
+        debugger;
+        console.error(this.props.url,status,err.toString());
+      }.bind(this)
+    });
+
+  },
   render: function(){
     var self = this;
     return(
       <div className='review-container'>
+        <h3>Reviews</h3>
+        <ReviewForm film={this.props.film} onReviewSubmit={this.handleReviewSubmit}/>
         <ReviewList film={this.state.film} reviews={this.state.reviews}/>
-        <ReviewForm film={this.props.film} onSubmit={this.handleReviewSubmit}/>
       </div>
     )
   }

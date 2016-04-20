@@ -1,6 +1,5 @@
 var Review = React.createClass({
   render: function(){
-    debugger;
     var reviewContent = this.props.data.content
     var reviewCreatedAt = this.props.data.created_at
     var user = this.props.data.user
